@@ -1,0 +1,33 @@
+<div>
+<h1 class="page-header">Nodes</h1>
+  <div class='table-responsive'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>CPUs</th>
+          <th>Memory</th>
+          <th>Status</th>
+          <th>Alloc CPU</th>
+          <th>Alloc Mem</th>
+          <th>Features</th>
+          <th>Load</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(id,node) in nodes.list">
+          <td>{{ id }}</td>
+          <td>{{ node.cpus }}</td>
+          <td>{{ node.real_memory }}</td>
+          <td>{{ node.state }}</td>
+          <td>{{ node.alloc_cpus }}</td>
+          <td>{{ node.alloc_mem }}</td>
+          <td>{{ node.gres.toString() }}</td>
+          <td>{{ node.cpu_load / node.cpus | number: 2 }} %</td>
+          <td>{{ node.weight}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -39,7 +39,9 @@ angular.module('app.queue').factory('queue', function($http){
 
 angular.module('app.queue').controller('QueueCtrl', function ($scope, queue, $interval){
   var self = this;
-  self.jobs = queue.update();
+  $scope.$on('$viewContentLoaded', function(){
+      self.jobs = queue.update();
+  });
   // do updates every 5s on queue info
   self.stop = $interval(function(){
     self.jobs = queue.update();

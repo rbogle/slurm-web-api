@@ -3,7 +3,8 @@ angular.module('app', [
   'ui.bootstrap',
   'ngRoute',
   'app.queue',
-  'app.overview'
+  'app.overview',
+  'app.nodes'
 ]);
 
 angular.module('app').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
