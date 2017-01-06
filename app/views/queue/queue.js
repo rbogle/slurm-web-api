@@ -13,7 +13,22 @@ angular.module('app.queue').factory('queue', function($http){
     queue.update = function(){
       $http.get(url).then(function(response){
           //console.log(response.status);
-          queue.jobs.running=response.data;
+          queue.jobs.running = {};
+          queue.jobs.pending = {};
+          queue.jobs.finished = {};
+          for (var key in response.data ){
+              job = response.data[key]
+              if (job.job_state == 'RUNNING') {
+                queue.jobs.running[key]=job;
+              }
+              else if (job.job_state == 'PENDING'){
+                queue.jobs.pending[key] = job;
+              }
+              else{
+                queue.jobs.finished[key] = job;
+              }
+          }
+          //queue.jobs.running=response.data;
       });
       return queue.jobs;
     };
