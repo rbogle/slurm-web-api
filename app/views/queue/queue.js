@@ -2,7 +2,9 @@
 angular.module('app.queue', ['ngRoute']);
 angular.module('app.queue').config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/queue', {
-    templateUrl: 'views/queue/queue.html'
+    templateUrl: "views/queue/queue.html",
+    controller: "QueueCtrl",
+    controllerAs: "queue"
   });
 }]);
 
@@ -35,11 +37,17 @@ angular.module('app.queue').factory('queue', function($http){
     return queue;
 });
 
-angular.module('app.queue').controller('QueueCtrl', function (queue, $interval){
+angular.module('app.queue').controller('QueueCtrl', function ($scope, queue, $interval){
   var self = this;
   self.jobs = queue.update();
-  $interval(function(){
+  // do updates every 5s on queue info
+  self.stop = $interval(function(){
     self.jobs = queue.update();
   }, 5000);
+  //kill updates when we nav away
+  $scope.$on('$destroy', function(){
+    if (self.stop)
+      $interval.cancel(self.stop);
+  });
 
 });

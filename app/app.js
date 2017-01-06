@@ -13,7 +13,7 @@ angular.module('app').config(['$locationProvider', '$routeProvider', function($l
 }]);
 
 
-angular.module('app').controller('NavCtrl', function($scope){
+angular.module('app').controller('AppCtrl', function($scope){
 
   $scope.isNavCollapsed = true;
 
