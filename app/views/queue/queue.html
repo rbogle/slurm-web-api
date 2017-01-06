@@ -1,0 +1,36 @@
+<div>
+<h1 class="page-header">Queue</h1>
+<div ng-controller="ListCtrl as queue">
+  <div class='table-responsive'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Status</th>
+          <th>Partition</th>
+          <th>Nodes</th>
+          <th>Command</th>
+          <th>Resources</th>
+          <th>Run Time</th>
+          <th>Wall Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(id,job) in queue.jobs">
+          <td>{{ id }}</td>
+          <td>{{ job.user_id }}</td>
+          <td>{{ job.job_state }}</td>
+          <td>{{ job.partition }}</td>
+          <td>{{ job.nodes }}</td>
+          <td>{{ job.command }}</td>
+          <td>{{ job.tres_alloc_str}}</td>
+          <td>{{ job.run_time_str}}</td>
+          <td>{{ job.time_limit_str}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>

@@ -8,9 +8,12 @@
     <title>Slurm Status</title>
     <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
     <script type="text/javascript" src="/lib/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/lib/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="/app.js"></script>
+    <script type="text/javascript" src="/views/queue/queue.js"></script>
+    <script type="text/javascript" src="/views/overview/overview.js"></script>
     <!--Bootstrap Yeti Theme (Bootswatch.com) -->
     <link href="/lib/bootswatch-dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -27,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Slurm Status</a>
         </div>
         <div class="navbar-collapse collapse" uib-collapse='isNavCollapsed'>
           <ul class="nav navbar-nav navbar-right">
@@ -47,43 +50,15 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+            <li class="active"><a href="#!/overview">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#!/queue">Queue</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Nodes</a></li>
+            <li><a href="#">Partitions</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
-            <h1>Controllers</h1>
-            <div ng-controller="MainCtrl">
-              <p>{{ message }}</p>
-              <form ng-submit="updateMessage(newMessage)">
-                <input type="text" ng-model="newMessage">
-                <button type="submit">Update Message</button>
-              </form>
-            </div>
-            <h1> Services</h1>
-            <div ng-controller="ListCtrl as list">
-              <div class='table-responsive'>
-                <table class='table table-striped'>
-                  <thead>
-                    <tr><th>ID</th><th>Message</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="message in list.messages"><td>{{ message.id }}</td><td>{{ message.text }}</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div ng-controller="PostCtrl as post">
-              <form ng-submit="post.addMessage(post.newMessage)">
-                <input type="text" ng-model="post.newMessage">
-                <button type="submit">Add Message</button>
-              </form>
-            </div>
-
+          <div ng-view>  </div>
         </div>
       </div>
   </body>
