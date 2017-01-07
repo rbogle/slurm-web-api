@@ -4,7 +4,8 @@ angular.module('app', [
   'ngRoute',
   'app.queue',
   'app.overview',
-  'app.nodes'
+  'app.nodes',
+  'app.partitions'
 ]);
 
 angular.module('app').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

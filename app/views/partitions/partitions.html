@@ -1,0 +1,31 @@
+<div>
+<h1 class="page-header">Partitions</h1>
+  <div class='table-responsive'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Nodes</th>
+          <th>State</th>
+          <th>Resources</th>
+          <th>Max WallTime</th>
+          <th>Limited To</th>
+          <th>Prempt Mode</th>
+          <th>Priority Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(id,part) in parts.list" >
+          <td>{{ id }}</td>
+          <td>{{ part.nodes }}</td>
+          <td>{{ part.state }}</td>
+          <td>{{ part.tres_fmt_str }}</td>
+          <td>{{ part.max_time }}</td>
+          <td>{{ part.allow_accounts.toString() }}</td>
+          <td>{{ part.preempt_mode }} </td>
+          <td>{{ part.priority_tier }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
