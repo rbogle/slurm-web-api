@@ -12,6 +12,8 @@ angular.module('app.overview').controller('OverviewCtrl', function ($scope, $htt
   var self = this;
   var nodes_url = "http://nebula.wr.usgs.gov/slurmapi/nodes";
 
+  self.graph_url = "http://astromon.wr.usgs.gov/dashboard/solo/db/hpc-queues?panelId=1&fullscreen&from=now-48h&to=now&theme=light";
+
   self.get_data = function(){
     $http.get(nodes_url).then(function(response){
         var nodes = []
@@ -37,7 +39,7 @@ angular.module('app.overview').controller('OverviewCtrl', function ($scope, $htt
   // do updates every 5s on queue info
   self.stop = $interval(function(){
     self.get_data();
-  }, 5000);
+  }, 15000);
 
   //kill updates when we nav away
   $scope.$on('$destroy', function(){
