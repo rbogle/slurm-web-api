@@ -1,8 +1,41 @@
 <div>
 <h1 class="page-header">Overview</h1>
-  <p>{{ message }}</p>
-  <form ng-submit="updateMessage(newMessage)">
-    <input type="text" ng-model="newMessage">
-    <button type="submit">Update Message</button>
-  </form>
+<div id="queue-graph" class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Queue Status</h2>
+  </div>
+  <div class="panel-body">
+      <iframe src="http://astromon.wr.usgs.gov/dashboard/solo/db/hpc-queues?panelId=1&fullscreen&from=now-7d&to=now&theme=light" width="100%" height="400px" frameborder="0"></iframe>
+  </div>
+</div>
+<div id="nodes-status" class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Nodes Status</h2>
+  </div>
+  <div class="panel-body">
+    <div class='row'>
+      <div class="col-md-2 node-status" ng-repeat='node in overview.nodes' >
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{node.name}}</h2>
+          </div>
+          <div class="panel-body" ng-style="overview.set_color(node.cpu_load)">
+            State: {{ node.state}} <br/>
+            CPU Load: {{node.cpu_load | number:1}}% <br/>
+            Mem Load: {{node.mem_load | number:1}}% <br/>
+            CPU Avail: {{node.cpus_avail}} <br/>
+            Mem Avail: {{node.mem_avail/1000 | number:0}} Gb
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="parts-status" class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Partitions Status</h2>
+  </div>
+  <div class="panel-body">
+  </div>
+</div>
 </div>

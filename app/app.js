@@ -15,8 +15,12 @@ angular.module('app').config(['$locationProvider', '$routeProvider', function($l
 }]);
 
 
-angular.module('app').controller('AppCtrl', function($scope){
+angular.module('app').controller('AppCtrl', function($scope, $location){
 
   $scope.isNavCollapsed = true;
 
+  $scope.isActive = function (viewLocation) {
+       var active = (viewLocation === $location.path());
+       return active;
+  };
 });
