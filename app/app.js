@@ -11,8 +11,8 @@ angular.module('app', [
 
 angular.module('app').config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.html5Mode(true);
-
-  //$routeProvider.otherwise({redirectTo: '/overview'});
+  $locationProvider.hashPrefix('!');
+  $routeProvider.otherwise({redirectTo: '/overview'});
 }]);
 
 
