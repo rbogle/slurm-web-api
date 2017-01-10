@@ -18,8 +18,8 @@ location /<baseref>/ {
 }
 ```
 
-I also needed to have `<base href=<baseref> /> `in the head of index above any links.
-All resource urls in head need to have the baseref added.
+I also needed to have `<base href=<baseref> /> `in the head of index above any links.  
+All resource urls in head need to have the baseref added.  
 Urls in the html should be relative to ``<baseref>`` i.e.
 
 ```
