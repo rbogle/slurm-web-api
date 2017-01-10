@@ -40,21 +40,19 @@ angular.module('app.nodes').controller('NodesCtrl', function ($scope, $http, $in
       $interval.cancel(self.stop);
   });
 
-  self.rowClass = function(node){
-      var state= "";
-      var cpuload = node.alloc_cpus / node.cpus;
-      var memload = node.alloc_mem / node.real_memory;
-      if ((cpuload >= .25 ) || (memload >= .25) ){
-        state='info';
-      }
-      if ((cpuload >= .5 ) || (memload >= .5 ) ){
-        state='warning';
-      }
-      if ((cpuload >= .75 ) || (memload >= .75 ) ){
-        state='danger';
-      }
-      //console.log( node.name+": "+cpuload+" | "+memload+" = "+state);
-      return state;
+  self.set_color = function(node){
+    cpuload = Math.round((node.alloc_cpus / node.cpus)*1000)/10;
+    memload = Math.round((node.alloc_mem / node.real_memory)*1000)/10;
+    value = Math.max(cpuload,memload);
+    //console.log("Node color is: "+value);
+    if (value < 25 ){
+      return {};
+    }
+    else {
+      hue = 100-Math.min(Math.max(value,1),100);
+      hue_str = 'hsl('+hue+',61%,61%)';
+      return { backgroundColor: hue_str};
+    }
   };
 
 });

@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="(id,node) in nodes.list" ng-class="nodes.rowClass(node)">
+        <tr ng-repeat="(id,node) in nodes.list" ng-style="nodes.set_color(node)">
           <td>{{ id }}</td>
           <td>{{ node.cpus }}</td>
           <td>{{ node.real_memory }}</td>
