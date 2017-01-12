@@ -1,0 +1,55 @@
+<div><!-- ng-controller="QueueCtrl as queue">  -->
+<h1 class="page-header">History</h1>
+<!-- Running Jobs -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title"> History Results </h2>
+    </div>
+    <div class="panel-body">
+      <div class='table-responsive'>
+        <select ng-model='history.filter_key' ng-options='opt for opt in history.filter_names track by opt'></select>
+        <input type="text" ng-model='history.filter_val'>
+        <button class="btn btn-primary" ng-click='history.add_filter(history.filter_key,history.filter_val)'>Apply Filter</button>
+        <button class="btn btn-primary" ng-click='history.reset_filters()'>Clear Filters</button>
+        <div ng-repeat='(key,val) in history.filters_set'>
+          <button class="btn btn-primary" ng-click='history.del_filter(key,val)'>{{key}} : {{val}} <span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+        <table class='table table-striped'>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>User</th>
+              <th>Account</th>
+              <th>Status</th>
+              <th>Partition</th>
+              <th>Nodes</th>
+              <th>CPUs</th>
+              <th>Memory</th>
+              <th>Wall Time</th>
+              <th>Submit Time</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="job in history.list">
+              <td>{{ job.id_job }}</td>
+              <td>{{ job.job_name }}</td>
+              <td>{{ job.user_name}}</td>
+              <td>{{ job.account }}</td>
+              <td>{{ job.state }}</td>
+              <td>{{ job.partition }}</td>
+              <td>{{ job.nodelist }}</td>
+              <td>{{ job.cpus_req }}</td>
+              <td>{{ job.mem_req / (1024*1024) | number: 0}} Mb</td>
+              <td>{{ job.timelimit }}</td>
+              <td>{{ job.time_submit}}</td>
+              <td>{{ job.time_start}}</td>
+              <td>{{ job.time_end}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
