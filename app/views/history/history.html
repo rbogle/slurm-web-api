@@ -7,12 +7,16 @@
     </div>
     <div class="panel-body">
       <div class='table-responsive'>
-        <select ng-model='history.filter_key' ng-options='opt for opt in history.filter_names track by opt'></select>
-        <input type="text" ng-model='history.filter_val'>
-        <button class="btn btn-primary" ng-click='history.add_filter(history.filter_key,history.filter_val)'>Apply Filter</button>
-        <button class="btn btn-primary" ng-click='history.reset_filters()'>Clear Filters</button>
-        <div ng-repeat='(key,val) in history.filters_set'>
-          <button class="btn btn-primary" ng-click='history.del_filter(key,val)'>{{key}} : {{val}} <span class="glyphicon glyphicon-remove"></span></button>
+        <div>
+          <select ng-model='history.filter_key' ng-options='opt for opt in history.filter_names track by opt'></select>
+          <input type="text" ng-model='history.filter_val' ng-show="history.show_input('text',history.filter_key)" >
+          <select ng-model='history.filter_val'  ng-options='id as state for (id,state) in history.filter_states' ng-show="history.show_input('select',history.filter_key)">
+          </select>
+          <button class="btn btn-primary" ng-click='history.add_filter(history.filter_key,history.filter_val)'>Apply Filter</button>
+          <button class="btn btn-primary" ng-click='history.reset_filters()'>Clear Filters</button>
+      </div>
+        <div class='btn-group' ng-repeat='(key,val) in history.filters_set'>
+          <button class="btn btn-primary btn-space" ng-click='history.del_filter(key,val)'>{{key}} : {{val}} <span class="glyphicon glyphicon-remove"></span></button>
         </div>
         <table class='table table-striped'>
           <thead>

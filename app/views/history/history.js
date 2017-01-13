@@ -24,7 +24,9 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
   var self = this;
   var url_base = "http://nebula.wr.usgs.gov/slurmapi/history";
   self.list={};
-  self.filter_names=['limit','offset','user','job id','job name','start time','end time','submit time'];
+  self.filter_states=['JOB_PENDING','JOB_RUNNING','JOB_SUSPENDED','JOB_COMPLETE','JOB_CANCELLED','JOB_FAILED',
+  'JOB_TIMEOUT', 'JOB_NODE_FAIL', 'JOB_PREEMPTED', 'JOB_BOOT_FAIL', 'JOB_DEADLINE'];
+  self.filter_names=['limit','offset','user','job id','job name','state','start time','end time','submit time'];
   self.filter_ops=['=','>','<','>=','<=', '!='];
   self.filters_set={ limit: '25'};
   self.filter_key=""
@@ -37,7 +39,7 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
 
   self.add_filter= function (key,value){
     if (self.filter_names.indexOf(key) !== -1){
-      //console.log("adding "+key+" & "+value)
+      console.log("adding "+key+" & "+value)
       self.filters_set[key]=value;
       self.update()
     }
@@ -64,6 +66,18 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
         //console.log(response.status);
         self.list = response.data
     });
+  };
+
+  self.show_input = function(type,filter){
+      var tree = {
+        'text' : [ 'limit','offset','user','job id','job name'],
+        'select' : ['state'],
+        'date' : ['start time','end time','submit time']
+      };
+      if (tree[type].indexOf(filter) !== -1){
+        return true;
+      }
+      return false;
   };
 
   // do updates every 5s on queue info
