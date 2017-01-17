@@ -62,7 +62,7 @@
         <tbody>
           <tr ng-repeat="(id,job) in queue.jobs.pending">
             <td>{{ id }}</td>
-            <td>{{ job.user_id }}</td>
+            <td>{{ job.user_name }}</td>
             <td>{{ job.job_state }}</td>
             <td>{{ job.partition }}</td>
             <td>{{ job.nodes }}</td>
@@ -100,7 +100,7 @@
         <tbody>
           <tr ng-repeat="(id,job) in queue.jobs.finished">
             <td>{{ id }}</td>
-            <td>{{ job.user_id }}</td>
+            <td>{{ job.user_name }}</td>
             <td>{{ job.job_state }}</td>
             <td>{{ job.partition }}</td>
             <td>{{ job.nodes }}</td>
