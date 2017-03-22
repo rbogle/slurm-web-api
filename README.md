@@ -8,7 +8,20 @@ Warning: There are a few dirty dependencies on slurm and collectd to render this
 
 #### Examples
 
+Overview:
 ![alt text](https://cloud.githubusercontent.com/assets/7741121/24215694/c1375a3c-0ef6-11e7-92d9-eb094eb27bef.png "Overview")
+
+Queue:
+![alt text](https://cloud.githubusercontent.com/assets/7741121/24216518/af5e2da6-0ef9-11e7-82c9-a177c75adbb5.png "Queue")
+
+History:
+![alt text](https://cloud.githubusercontent.com/assets/7741121/24216566/f14c1052-0ef9-11e7-8e9d-c2ad72f88add.png "History")
+
+Nodes:
+![alt text](https://cloud.githubusercontent.com/assets/7741121/24216523/b69e4f2e-0ef9-11e7-9718-d9045c32d98d.png "Nodes")
+
+Partitions:
+![alt text](https://cloud.githubusercontent.com/assets/7741121/24216529/bd01d566-0ef9-11e7-8ecd-18fa75791c84.png "Partitions")
 
 ### Install and Dependencies
 This project uses npm and bower to help with package management
