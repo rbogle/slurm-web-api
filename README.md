@@ -13,6 +13,7 @@ You need to have those installed first.
 1. Install NPM, slurm-rest-api
 
   Exercise left to developer.
+
   See [slurm_rest_api](https://github.com/rbogle/slurm-rest-api)
   for that repo's instructions.
 
@@ -30,10 +31,13 @@ You need to have those installed first.
   ```
 
 4. Testing and Development
+
   The project includes the spec for lite-server. You can start the server with
+
   ```
   npm start
   ```
+
   this will open the web app in your broswer on localhost:3000
 
 ### Deploy Notes
