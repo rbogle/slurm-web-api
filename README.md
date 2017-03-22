@@ -6,6 +6,10 @@ This project uses bootstrap and angularjs to provide a single-page dashboard app
 
 Warning: There are a few dirty dependencies on slurm and collectd to render this correctly.
 
+#### Examples
+
+![alt text](https://cloud.githubusercontent.com/assets/7741121/24215694/c1375a3c-0ef6-11e7-92d9-eb094eb27bef.png "Overview")
+
 ### Install and Dependencies
 This project uses npm and bower to help with package management
 You need to have those installed first.
