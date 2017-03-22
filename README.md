@@ -10,30 +10,31 @@ Warning: There are a few dirty dependencies on slurm and collectd to render this
 This project uses npm and bower to help with package management
 You need to have those installed first.
 
-1. Install NPM, Bower, slurm-rest-api
-Exercise left to developer.
-See [slurm_rest_api](https://github.com/rbogle/slurm-rest-api)
-for that repo's instructions.
+1. Install NPM, slurm-rest-api
+
+  Exercise left to developer.
+  See [slurm_rest_api](https://github.com/rbogle/slurm-rest-api)
+  for that repo's instructions.
 
 2. Clone Repo
-```
-git clone https://github.com/rbogle/slurm-web-api.git
-```
+  ```
+  git clone https://github.com/rbogle/slurm-web-api.git
+  ```
 
 3. Run NPM, bower
-run npm install to intall the dev server and bower, thenour package.json file should trigger bower to download dependencies and place them in app/lib
 
-```
-  npm install
+  Run npm install to install the dev server and bower, then our package.json file should trigger bower to download javascript dependencies and place them in app/lib
+  ```
+    npm install
 
-```
+  ```
 
 4. Testing and Development
-The project includes the spec for lite-server. You can start the server with
-```
-npm start
-```
-this will open the web app in your broswer on localhost:3000
+  The project includes the spec for lite-server. You can start the server with
+  ```
+  npm start
+  ```
+  this will open the web app in your broswer on localhost:3000
 
 ### Deploy Notes
 I deployed this to a subdirectory on an nginx server.
