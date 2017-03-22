@@ -24,7 +24,7 @@ You need to have those installed first.
 
 3. Run NPM, bower
 
-   Run npm install to install the dev server and bower, then our package.json file should trigger bower to download javascript dependencies and place them in app/lib
+    Run npm install to install the dev server and bower, then our package.json file should trigger bower to download javascript dependencies and place them in app/lib
 
     ```
       npm install
