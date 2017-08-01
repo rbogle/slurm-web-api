@@ -59,6 +59,13 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
         unique: true,
         input: 'text'
     },
+    'partition':{
+        ops: ['=' ],
+        valids: ['shortall','longall','research','pds','gpu','mem'],
+        type: 'string',
+        unique: true,
+        input: 'select'
+    },
     'job id':{
         ops: ['=','>','<','>=','<=' ],
         valids: [],
@@ -111,6 +118,9 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
   };
 
   self.add_filter= function (key,val,op){
+      if (( self.filters[key].type == 'string' ) && (self.filters[key].input=='select')){
+        val = self.filters[key].valids[val];
+      }
       if (self.filters[key].unique){
         for( i =0; i < self.filters_set.length; i++){
             if(self.filters_set[i].key == key){
@@ -121,6 +131,7 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
             }
         }
       }
+
       var filter= { 'key': key, 'val': val, 'op':op};
       self.filters_set.push(filter);
       self.update();
@@ -158,7 +169,7 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
       //console.log('show_input', type, filter)
       var tree = {
         'text' : [ 'limit','offset','user','job id','job name'],
-        'select' : ['state'],
+        'select' : ['state','partition'],
         'datetime' : ['start time','end time','submit time']
       };
       if (tree[type].indexOf(filter) !== -1){
