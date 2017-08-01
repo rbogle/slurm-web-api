@@ -12,6 +12,7 @@
             <tr>
               <th>ID</th>
               <th>User</th>
+              <th>Name</th>
               <th>Status</th>
               <th>Partition</th>
               <th>Nodes</th>
@@ -25,10 +26,11 @@
             <tr ng-repeat="(id,job) in queue.jobs.running">
               <td>{{ id }}</td>
               <td>{{ job.user_name}}</td>
+              <td>{{ job.name}}</td>
               <td>{{ job.job_state }}</td>
               <td>{{ job.partition }}</td>
               <td>{{ job.nodes }}</td>
-              <td>{{ job.command }}</td>
+              <td style="text-overflow: ellipsis; overflow: hidden; max-width: 250px;" title="{{job.command}}" >{{ job.command }}</td>
               <td>{{ job.tres_alloc_str}}</td>
               <td>{{ job.run_time_str}}</td>
               <td>{{ job.time_limit_str}}</td>

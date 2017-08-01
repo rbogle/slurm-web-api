@@ -28,7 +28,11 @@ angular.module('app.overview').controller('OverviewCtrl', function ($scope, $htt
             node.state = anode.state;
             nodes.push(node);
         }
-        self.nodes= nodes;
+        // do a natural sort on node.name
+        self.nodes = nodes.sort( function (a,b){
+            return a.name.localeCompare(b.name, undefined, {numeric: true, sensitivity: 'base'});
+          }
+        );
     });
   };
 
