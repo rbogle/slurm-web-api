@@ -23,6 +23,7 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
 
   var self = this;
   var url_base = "http://nebula.wr.usgs.gov/slurmapi/history";
+  var url_parts = "http://nebula.wr.usgs.gov/slurmapi/partitions";
   self.data={};
   self.data_labels=['Id', "Name", 'User', 'Account', 'Status', 'Partition', 'Nodes', 'CPUs', 'Memory', 'WallTime', 'Submit Time', 'Start Time', 'End Time'];
 
@@ -61,7 +62,7 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
     },
     'partition':{
         ops: ['=' ],
-        valids: ['shortall','longall','research','pds','gpu','mem'],
+        valids: [], 
         type: 'string',
         unique: true,
         input: 'select'
@@ -110,6 +111,12 @@ angular.module('app.history').controller('HistoryCtrl', function ($scope, $http,
         input: 'datetime'
     }
   };
+
+  // get partition list
+  // TODO: fix in case error
+  $http.get(url_parts).then(function(response){
+      self.filters['partition'].valids = Object.keys(response.data)
+  });
 
   self.reset_filters = function(){
     self.filters_set={};
