@@ -10,7 +10,7 @@ angular.module('app.queue').config(['$routeProvider', function($routeProvider) {
 
 angular.module('app.queue').controller('QueueCtrl', function ($scope, $http, $interval){
   var self = this;
-  var url = "http://nebula.wr.usgs.gov/slurmapi/queue";
+  var url = apiUrl.queue;
   self.jobs={};
   self.update = function (){
     $http.get(url).then(function(response){

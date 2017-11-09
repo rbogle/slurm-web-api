@@ -9,7 +9,7 @@ angular.module('app.partitions').config(['$routeProvider', function($routeProvid
 
 //
 // angular.module('app.partitions').factory('parts', function($http){
-//     var url = "http://nebula.wr.usgs.gov/slurmapi/partitions";
+//     var url = apiUrl.partitions;
 //     var parts ={};
 //     parts.list = {};
 //     parts.update = function(){
@@ -23,7 +23,7 @@ angular.module('app.partitions').config(['$routeProvider', function($routeProvid
 
 angular.module('app.nodes').controller('PartCtrl', function ($scope, $http, $interval){
   var self = this;
-  var url = "http://nebula.wr.usgs.gov/slurmapi/partitions";
+  var url = apiUrl.partitions;
   $http.get(url).then(function(response){
       self.list= response.data
   });
