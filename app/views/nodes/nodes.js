@@ -9,7 +9,7 @@ angular.module('app.nodes').config(['$routeProvider', function($routeProvider) {
 }]);
 
 // angular.module('app.nodes').factory('nodes', function($http){
-//     var url = "http://nebula.wr.usgs.gov/slurmapi/nodes";
+//     var url = apiUrl.nodes;
 //     var nodes ={};
 //     nodes.list = {};
 //     nodes.update = function(){
@@ -24,7 +24,7 @@ angular.module('app.nodes').config(['$routeProvider', function($routeProvider) {
 
 angular.module('app.nodes').controller('NodesCtrl', function ($scope, $http, $interval){
   var self = this;
-  var url = "http://nebula.wr.usgs.gov/slurmapi/nodes";
+  var url = apiUrl.nodes;
   $http.get(url).then(function(response){
       self.list= response.data
   });

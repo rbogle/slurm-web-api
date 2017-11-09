@@ -8,10 +8,10 @@ angular.module('app.overview').config(['$routeProvider', function($routeProvider
   });
 }]);
 
-angular.module('app.overview').controller('OverviewCtrl', function ($scope, $http, $interval){
+angular.module('app.overview').controller('OverviewCtrl', function ($scope, $http, $interval, $sce){
   var self = this;
-  var nodes_url = "http://nebula.wr.usgs.gov/slurmapi/nodes";
-
+  var nodes_url = apiUrl.nodes;
+  self.queuestatus = {url:$sce.trustAsResourceUrl(queueStatusUrl)};
   self.get_data = function(){
     $http.get(nodes_url).then(function(response){
         var nodes = []

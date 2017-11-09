@@ -22,8 +22,8 @@ angular.module('app.history').config(['$routeProvider', function($routeProvider)
 angular.module('app.history').controller('HistoryCtrl', function ($scope, $http, $interval){
 
   var self = this;
-  var url_base = "http://nebula.wr.usgs.gov/slurmapi/history";
-  var url_parts = "http://nebula.wr.usgs.gov/slurmapi/partitions";
+  var url_base = apiUrl.history;
+  var url_parts = apiUrl.partitions;
   self.data={};
   self.data_labels=['Id', "Name", 'User', 'Account', 'Status', 'Partition', 'Nodes', 'CPUs', 'Memory', 'WallTime', 'Submit Time', 'Start Time', 'End Time'];
 
