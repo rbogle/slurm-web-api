@@ -39,7 +39,15 @@ You need to have those installed first.
     git clone https://github.com/rbogle/slurm-web-api.git
     ```
 
-3. Run NPM, bower
+3. Configure to match slurm-rest-api
+
+    Modify `app/config.js` and set the Url's to match where you are hosting slurm-rest-api.
+    
+    `queueStatusUrl` can be pointed to any url that displays your slurm queue status.
+    
+    Note: if you are running slurm-rest-api and slurm-web-api on the same server, you may have to enable CORS on slurm-rest-api. See https://github.com/corydolphin/flask-cors for more information.
+
+4. Run NPM, bower
 
     Run npm install to install the dev server and bower, then our package.json file should trigger bower to download javascript dependencies and place them in app/lib
 
@@ -48,7 +56,7 @@ You need to have those installed first.
 
     ```
 
-4. Testing and Development
+5. Testing and Development
 
     The project includes the spec for lite-server. You can start the server with
 
