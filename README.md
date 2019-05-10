@@ -27,9 +27,11 @@ Partitions:
 This project uses npm and bower to help with package management
 You need to have those installed first.
 
-1. Install NPM, slurm-rest-api
+1. Install NPM, bower and slurm-rest-api
 
-    Exercise left to developer.
+    NPM install is an Exercise left to developer depending on OS.
+
+    npm install -g bower
 
     See [slurm_rest_api](https://github.com/rbogle/slurm-rest-api)
     for that repo's instructions.

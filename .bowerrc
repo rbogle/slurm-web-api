@@ -1,5 +1,4 @@
 {
   "directory": "app/lib",
-  "strict-ssl": true,
-  "ca": "${CA_BUNDLE}"
+  "strict-ssl": true
 }
